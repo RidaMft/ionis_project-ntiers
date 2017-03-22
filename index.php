@@ -150,7 +150,7 @@
                         $login=$_POST['login'];
                         $mdp=$_POST['passwd'];
 
-                        $res=$pdo->loginEspace($login,$mdp);
+                        $res=$pdo->loginUtilisateur($login,$mdp);
                         if ($res == 0)
                         {
                               include("vues/v_erreur.php");                   

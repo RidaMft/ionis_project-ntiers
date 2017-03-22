@@ -2,7 +2,7 @@
 class PdoIonis
 {   		
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=projetweb';   		
+      	private static $bdd='dbname=archi_ntiers';   		
       	private static $user='root' ;    		
       	private static $mdp='root' ;	
 		private static $monPdo;
@@ -34,36 +34,36 @@ class PdoIonis
 		return PdoIonis::$monPdoIonis;  
 	}
         
-	public function getLesEleves()
+	public function getLesProduits()
 	{
-		$req = "select * from eleve";
+		$req = "select * from produit";
                 $res=  PdoIonis::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
 
-	public function getLesElevesDuTableau($lesid)
+	public function getLesProduitsDuTableau($lesid)
 	{
-		$nbEleves = count($lesid);
-		$lesEleves=array();
-		if($nbEleves != 0)
+		$nbProduits = count($lesid);
+		$lesProduits=array();
+		if($nbProduits != 0)
 		{
 			foreach($lesid as $id)
 			{
-				$req = "select * from eleve where id = '$id'";
+				$req = "select * from produit where id = '$id'";
 				$res=  PdoIonis::$monPdo->query($req);
-				$unEleve = $res->fetch();
-				$lesEleves[] = $unEleve;
+				$unProduit = $res->fetch();
+				$lesProduits[] = $unProduit;
 			}
 		}
-		return $lesEleves;
+		return $lesProduits;
 	}
         
        
-        public function ajoutEleve($id,$nom, $prenom, $adresse_mail, $adresse_postale , $niveau_etude , $date_naissance, $photo, $mdp)
+        public function ajoutProduit($id,$libelle, $prix, $description, $tva, $photo)
         {
-              $sql = "INSERT  INTO eleve (nom, prenom, adresse_mail, adresse_postale, niveau_etude, date_naissance, photo,mdp)
-                        VALUES ('$nom', '$prenom', '$adresse_mail', '$adresse_postale', '$niveau_etude','$date_naissance','$photo','$mdp')";
+              $sql = "INSERT  INTO produit (nom, libelle, prix, description, tva, photo)
+                        VALUES ('$nom', '$libelle', '$prix', '$description', '$tva','$photo')";
 
               $res = PdoIonis::$monPdo->query($sql);
 
@@ -80,58 +80,56 @@ class PdoIonis
               }
               return $res;
         }
-        public function modifEleve($id, $nom, $prenom, $adresse_mail, $adresse_postale , $niveau_etude , $date_naissance, $photo,$mdp)
+        public function modifProduit($id,$libelle, $prix, $description, $tva, $photo)
         {
-            $req = "UPDATE eleve SET 
-                    nom = '$nom',
-                    prenom = '$prenom',
-                    adresse_mail = '$adresse_mail',
-                    adresse_postale = '$adresse_postale',
-                    niveau_etude = '$niveau_etude',
-                    date_naissance = '$date_naissance',
+            $req = "UPDATE produit SET 
+                    id = '$id',
+                    libelle = '$libelle',
+                    prix = '$prix',
+                    description = '$description',
+                    tva = '$tva',
                     photo = '$photo',
-                    mdp ='$mdp'
                     WHERE id = '$id'" ;
             $res=PdoIonis::$monPdo->query($req);
             return $res;
             echo $res;
         }
-        public function afficheEleve($id)
+        public function afficheProduit($id)
         {
-            $req = "select * from eleve where id = '$id'";
+            $req = "select * from produit where id = '$id'";
             $res=  PdoIonis::$monPdo->query($req);
-            $unEleve = $res->fetch();
-            return $unEleve;          
+            $unProduit = $res->fetch();
+            return $unProduit;          
         }
         
-        public function suppEleve($id)
+        public function suppProduit($id)
         {
-            $req = "delete from eleve where id ='$id'";
+            $req = "delete from produit where id ='$id'";
             $res=  PdoIonis::$monPdo->query($req);
             return $res;            
         }
 
         public function log($login,$passwd)
         {
-            $req = "select count(*) as nb from CONNECT where LOGIN = '$login' and MDP = '$passwd'";
+            $req = "select count(*) as nb from utilisateur where login = '$login' and mdp = '$passwd'";
             $res =  PdoIonis::$monPdo->query($req);
             $ligne = $res->fetch();
             $nb=$ligne['nb'];
             return $nb;    
         }
         
-        public function loginEspace($nom,$mdp)
+        public function loginEspace($login,$mdp)
         {
-            $req = "select count(*) as nb from eleve where nom = '$nom' and mdp = '$mdp'";
+            $req = "select count(*) as nb from utilisateur where login = '$login' and mdp = '$mdp'";
             $res =  PdoIonis::$monPdo->query($req);
             $ligne = $res->fetch();
             $nb=$ligne['nb'];
             return $nb;    
         }
         
-        	public function getUnEleve($login)
+        	public function getUnUtilisateur($login)
 	{
-		$req = "select * from eleve where nom ='$login";
+		$req = "select * from utilisateur where login ='$login";
                 $res=  PdoIonis::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
