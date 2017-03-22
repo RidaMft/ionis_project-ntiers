@@ -67,10 +67,10 @@
                         $photo=$_POST['photo'];
 
                         $res=$pdo->modifProduit($id, $libelle, $prix, $description, $tva, $photo);
+                        
                         if($res)
                         {
                             echo 'Modification pris en compte'; 
-                            //var_dump($res);
                             include("vues/v_voirProduits.php");  
                         }
                         else
@@ -106,10 +106,11 @@
                             $id=$_REQUEST['id'];
                             $libelle=$_POST['libelle'];
                             $prix=$_POST['prix'];
+                            $quantite = $_POST['quantite'];
                             $description=$_POST['description'];
                             $tva=$_POST['tva'];
                             $photo=$_POST['photo'];
-                            $res=$pdo->ajoutProduit($id,$libelle,$prix, $description, $tva, $photo);
+                            $res=$pdo->ajoutProduit($id,$libelle,$prix, $quantite, $description, $tva, $photo);
                             include("vues/v_voirProduits.php");                        
                         }
                         break;

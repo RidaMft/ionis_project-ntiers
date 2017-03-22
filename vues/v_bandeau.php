@@ -4,7 +4,7 @@
 <!--  Menu haut-->
 <ul id="menu">
 	<li><a href="index.php?uc=accueil"> Accueil </a></li>
-	<li><a href="index.php?uc=voirEleves"> Voir les eleves  </a></li>
+	<li><a href="index.php?uc=voirProduits"> Voir les produits  </a></li>
 	<li><a href="index.php?uc=administrer"> Administrer </a></li>
         <li><a href="index.php?uc=login_espace"> Mon espace </a></li>
      

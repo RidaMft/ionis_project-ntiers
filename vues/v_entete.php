@@ -7,4 +7,4 @@
 <link href="util/style.css" rel="stylesheet" type="text/css">
 </head>
 <body >
-    <h1>Projet Web Avancé Rida MEFTAH </h1>
+    <h1>Projet Architecture N Tier - Nawfel Mehdi Rida </h1>

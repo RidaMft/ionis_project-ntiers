@@ -7,28 +7,27 @@
 <table width='70%' border='1px' height='90' align='center'>
   <tr>
     <td>Numero</td>
-    <td>Nom</td>
-    <td>Prénom</td>
-    <td>Mail</td>
-    <td>Adresse</td>
-    <td>Niveau d'étude</td>
-    <td>Date de Naissance</td>
+    <td>Libelle</td>
+    <td>Prix</td>
+    <td>Quantité</td>
+    <td>Description</td>
+    <td>TVA</td>
     <td>Photo</td>
   </tr>
 
  <?php
- $_POST['ListeV']=$pdo->getLesEleves();
- foreach($_POST['ListeV'] as $val => $unEleve)
+ $_POST['ListeV']=$pdo->getLesProduits();
+ foreach($_POST['ListeV'] as $val => $unProduit)
  {
     echo"<tr>";
-        echo "<td>$unEleve[0]</td>";
-		echo "<td>$unEleve[1]</td>";
-        echo "<td>$unEleve[2]</td>";
-        echo "<td>$unEleve[3]</td>";
-        echo "<td>$unEleve[4]</td>";
-        echo "<td>$unEleve[5]</td>";
-        echo "<td>$unEleve[6]</td>";
-        echo "<td><img src=images/$unEleve[7] alt=$unEleve[7] title=images/$unEleve[7] width='200' height='150'/></td>";
+        echo "<td>$unProduit[0]</td>";
+        echo "<td>$unProduit[1]</td>";
+        echo "<td>$unProduit[2]</td>";
+        echo "<td>$unProduit[3]</td>";
+        echo "<td>$unProduit[4]</td>";
+        echo "<td>$unProduit[5]</td>";
+        echo "<td>$unProduit[6]</td>";
+        echo "<td><img src=images/$unProduit[7] alt=$unProduit[7] title=images/$unProduit[7] width='200' height='150'/></td>";
     echo "</tr>";  
 }
 ?>

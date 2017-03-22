@@ -48,25 +48,25 @@ class PdoIonis
 		$lesProduits=array();
 		if($nbProduits != 0)
 		{
-			foreach($lesid as $id)
-			{
-				$req = "select * from produit where id = '$id'";
-				$res=  PdoIonis::$monPdo->query($req);
-				$unProduit = $res->fetch();
-				$lesProduits[] = $unProduit;
-			}
+                    foreach($lesid as $id)
+                    {
+                        $req = "select * from produit where id = '$id'";
+                        $res=  PdoIonis::$monPdo->query($req);
+                        $unProduit = $res->fetch();
+                        $lesProduits[] = $unProduit;
+                    }
 		}
 		return $lesProduits;
 	}
         
        
-        public function ajoutProduit($id,$libelle, $prix, $description, $tva, $photo)
+        public function ajoutProduit($id,$libelle, $prix, $quantite, $description, $tva, $photo)
         {
-              $sql = "INSERT  INTO produit (nom, libelle, prix, description, tva, photo)
-                        VALUES ('$nom', '$libelle', '$prix', '$description', '$tva','$photo')";
+              $sql = "INSERT  INTO produit (libelle, prix, quantite, description, tva, photo)
+                        VALUES ('$libelle', $prix, $quantite, '$description', '$tva','$photo')";
 
               $res = PdoIonis::$monPdo->query($sql);
-
+              echo $sql;
               //affichage des résultats, pour savoir si l'insertion a marchée:
               if($res)
               {
@@ -80,24 +80,26 @@ class PdoIonis
               }
               return $res;
         }
-        public function modifProduit($id,$libelle, $prix, $description, $tva, $photo)
+        public function modifProduit($id,$libelle, $prix, $quantite, $description, $tva, $photo)
         {
             $req = "UPDATE produit SET 
                     id = '$id',
                     libelle = '$libelle',
-                    prix = '$prix',
+                    quantite = $quantite ,
+                    prix = $prix,
                     description = '$description',
                     tva = '$tva',
                     photo = '$photo',
                     WHERE id = '$id'" ;
             $res=PdoIonis::$monPdo->query($req);
+            echo $req;
             return $res;
-            echo $res;
         }
+        
         public function afficheProduit($id)
         {
             $req = "select * from produit where id = '$id'";
-            $res=  PdoIonis::$monPdo->query($req);
+            $res =  PdoIonis::$monPdo->query($req);
             $unProduit = $res->fetch();
             return $unProduit;          
         }
@@ -105,7 +107,7 @@ class PdoIonis
         public function suppProduit($id)
         {
             $req = "delete from produit where id ='$id'";
-            $res=  PdoIonis::$monPdo->query($req);
+            $res =  PdoIonis::$monPdo->query($req);
             return $res;            
         }
 
@@ -123,16 +125,16 @@ class PdoIonis
             $req = "select count(*) as nb from utilisateur where login = '$login' and mdp = '$mdp'";
             $res =  PdoIonis::$monPdo->query($req);
             $ligne = $res->fetch();
-            $nb=$ligne['nb'];
+            $nb = $ligne['nb'];
             return $nb;    
         }
         
-        	public function getUnUtilisateur($login)
+        public function getUnUtilisateur($login)
 	{
-		$req = "select * from utilisateur where login ='$login";
-                $res=  PdoIonis::$monPdo->query($req);
-		$lesLignes = $res->fetchAll();
-		return $lesLignes;
+            $req = "select * from utilisateur where login ='$login";
+            $res =  PdoIonis::$monPdo->query($req);
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
 	}
 }
 ?>
