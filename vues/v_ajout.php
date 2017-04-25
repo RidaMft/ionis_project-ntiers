@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <br>
     <form name="ajouter" action="index.php?uc=insertion" method="POST">
@@ -26,6 +29,10 @@
             <tr align="center">
                 <td>PHOTO</td>
                 <td><input type="file" name="photo" /></td>
+            </tr>
+            <tr align = "center">
+                <td>Login</td>
+                <td><input type ="text" name=login value = "<?php echo $_SESSION['login']; ?>" readonly="readonly"></td>
             </tr>
             <tr align="center">
                 <td colspan="2"><input type="submit" value="Ajouter"></td>

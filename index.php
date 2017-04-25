@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,8 +9,7 @@
     </head>
     <body>
         <?php
-        session_start();
-        $login = $_SESSION['login'];
+        $login = null;
 
         include("vues/v_entete.php");
         require_once("util/class.PDO.Ionis.inc.php");
@@ -52,6 +54,7 @@
             case 'modifier': {
                     include("vues/v_bandeauAdmin.php");
                     $id = $_GET['cleP'];
+                    $login = $_SESSION['login'];
                     $unProduit = $pdo->afficheProduit($id);
                     include 'vues/v_modif.php';
                     break;
@@ -67,12 +70,10 @@
                     $photo = $_POST['photo'];
                     $login = $_SESSION['login'];
 
-                    $res = $pdo->modifProduit($id, $libelle, $prix, $description, $tva, $photo);
-
+                    $res = $pdo->modifProduit($id, $libelle, $prix, $description, $tva, $photo, $login);
 
                     if ($res) {
                         echo 'Modification pris en compte';
-                        echo $login;
                         include("vues/v_voirProduits.php");
                     } else {
                         echo 'Erreur modification ';
@@ -97,7 +98,12 @@
 
             case 'ajouter': {
                     include("vues/v_bandeauAdmin.php");
-                    include 'vues/v_ajout.php';
+                    
+                    if (!isset($_SESSION['login']) && (!isset($_SESSION['passwd']))) {
+                        include("vues/v_connexion.php");
+                    } else {
+                        include 'vues/v_ajout.php';
+                    }
                     break;
                 }
 
@@ -111,7 +117,8 @@
                         $description = $_POST['description'];
                         $tva = $_POST['tva'];
                         $photo = $_POST['photo'];
-                        $res = $pdo->ajoutProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo);
+                        $login = $_SESSION['login'];
+                        $res = $pdo->ajoutProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo, $login);
                         include("vues/v_voirProduits.php");
                     }
                     break;
@@ -129,32 +136,6 @@
                         $_SESSION['login'] = $login;
                         $_SESSION['passwd'] = $passwd;
                         include("vues/v_voirProduits.php");
-                    }
-                    break;
-                }
-
-            case 'login_espace': {
-                    include("vues/v_bandeau.php");
-                    if (!isset($_SESSION['login']) && (!isset($_SESSION['passwd']))) {
-                        include("vues/v_connexionEspace.php");
-                    } else {
-                        include("vues/v_voirEspace.php");
-                    }
-                    break;
-                }
-
-            case 'connexion_espace': {
-                    include("vues/v_bandeau.php");
-                    $login = $_POST['login'];
-                    $mdp = $_POST['passwd'];
-
-                    $res = $pdo->loginUtilisateur($login, $mdp);
-                    if ($res == 0) {
-                        include("vues/v_erreur.php");
-                    } else {
-                        $_SESSION['login'] = $login;
-                        $_SESSION['passwd'] = $mdp;
-                        include("vues/v_voirEspace.php");
                     }
                     break;
                 }

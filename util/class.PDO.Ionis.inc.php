@@ -57,8 +57,8 @@ class PdoIonis {
         return $lesProduits;
     }
 
-    public function ajoutProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo) {
-        $sql = "INSERT  INTO produit (libelle, prix, quantite, description, tva, photo) VALUES ('$libelle', $prix, $quantite, '$description', '$tva','$photo')";
+    public function ajoutProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo, $login) {
+        $sql = "INSERT  INTO produit (libelle, prix, quantite, description, tva, photo, login) VALUES ('$libelle', $prix, $quantite, '$description', '$tva','$photo', '$login')";
 
         $res = PdoIonis::$monPdo->query($sql);
         echo $sql;
@@ -74,7 +74,7 @@ class PdoIonis {
         return $res;
     }
 
-    public function modifProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo) {
+    public function modifProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo, $login) {
         $req = "UPDATE produit SET 
             id = '$id',
             libelle = '$libelle',
@@ -83,6 +83,7 @@ class PdoIonis {
             description = '$description',
             tva = '$tva',
             photo = '$photo',
+            login = '$login' 
             WHERE id = '$id'";
 
         $res = PdoIonis::$monPdo->query($req);

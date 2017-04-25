@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <br>
     <form name="modification" action="index.php?uc=modification" method="POST">
@@ -29,6 +32,10 @@
             <tr align="center">
                 <td>PHOTO</td>
                 <td><input type="file" name="photo" /></td>
+            </tr>
+            <tr align="center">
+                <td>LOGIN</td>
+                <td><input type="text" name="login" value="<?php echo $unProduit['login']; ?>" readonly="readonly"></td>
             </tr>
             <tr align="center">
                 <td colspan="2"><input type="submit" value="modifier"></td>
