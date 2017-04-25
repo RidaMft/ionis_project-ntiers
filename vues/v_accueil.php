@@ -1,7 +1,15 @@
+<?php
+session_start();
+?>
+<br>
+<br>
+<br>
 <div>
-    Bienvenue
+    Bienvenue <?php echo $_SESSION[login];?>, vous pouvez pleinement utiliser l'application :)
 </div>
-
+<br>
+<br>
+<br>
 <form name="formulaire" action="index.php?uc=connexion" method="post">
     </br>
     Identifiant : <input type="text" name="login"></br>

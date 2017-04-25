@@ -85,7 +85,7 @@ class PdoIonis {
             photo = '$photo',
             login = '$login' 
             WHERE id = '$id'";
-
+        var_dump($req);
         $res = PdoIonis::$monPdo->query($req);
         return $res;
     }
@@ -95,6 +95,13 @@ class PdoIonis {
         $res = PdoIonis::$monPdo->query($req);
         $unProduit = $res->fetch();
         return $unProduit;
+    }
+    
+    public function afficheProduitParNom($nom) {
+        $req="SELECT * FROM produit WHERE libelle LIKE '%$nom%'";
+        $res = PdoIonis::$monPdo->query($req);
+        $lesProduits = $res->fetchAll();
+        return $lesProduits; 
     }
 
     public function suppProduit($id) {

@@ -23,13 +23,13 @@ session_start();
 
         switch ($uc) {
             case 'accueil': {
-                if (!isset($_SESSION['login']) && (!isset($_SESSION['passwd']))) {
+                    if (!isset($_SESSION['login']) && (!isset($_SESSION['passwd']))) {
                         include("vues/v_bandeau.php");
                         include("vues/v_accueil.php");
                     } else {
                         include("vues/v_bandeauAdmin.php");
                         include("vues/v_accueil.php");
-                    }                    
+                    }
                     break;
                 }
 
@@ -81,11 +81,11 @@ session_start();
             case 'modification': {
                     include("vues/v_bandeauAdmin.php");
                     $id = $_REQUEST['id'];
-                    $libelle = $_POST['libelle'];
-                    $prix = $_POST['prix'];
-                    $description = $_POST['description'];
-                    $tva = $_POST['tva'];
-                    $photo = $_POST['photo'];
+                    $libelle = $_REQUEST['libelle'];
+                    $prix = $_REQUEST['prix'];
+                    $description = $_REQUEST['description'];
+                    $tva = $_REQUEST['tva'];
+                    $photo = $_REQUEST['photo'];
                     $login = $_SESSION['login'];
 
                     $res = $pdo->modifProduit($id, $libelle, $prix, $description, $tva, $photo, $login);
@@ -169,7 +169,15 @@ session_start();
                     include("vues/v_bandeauAdmin.php");
                     $id = $_POST['id'];
                     $unProduit = $pdo->afficheProduit($id);
-                    include("vues/v_afficheUnProduit.php");
+                    include("vues/v_afficheUnProduitId.php");
+                    break;
+                }
+
+            case 'rechercher_nom_produit' : {
+                    include("vues/v_bandeauAdmin.php");
+                    $nom = $_POST['nom'];
+                    $lesProduits = $pdo->afficheProduitParNom($_POST['nom']);
+                    include("vues/v_afficheProduitParNom.php");
                     break;
                 }
         }
