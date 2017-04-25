@@ -11,23 +11,23 @@ session_start();
             </tr>
             <tr align="center">
                 <td>Libellé</td>
-                <td><input type="text" name="nom" value="<?php echo $unProduit['libelle']; ?>"></td>
+                <td><input type="text" name="libelle" value="<?php echo $unProduit['libelle']; ?>"></td>
             </tr>
             <tr align="center">
                 <td>Prix</td>
-                <td><input type="text" name="prenom" value="<?php echo $unProduit['prix']; ?>"></td>
+                <td><input type="text" name="prix" value="<?php echo $unProduit['prix']; ?>"></td>
             </tr>
             <tr align="center">
                 <td>Quantité</td>
-                <td><input type="text" name="mdp" value="<?php echo $unProduit['quantite']; ?>"></td>
+                <td><input type="text" name="quantite" value="<?php echo $unProduit['quantite']; ?>"></td>
             </tr>
             <tr align="center">
                 <td>Description</td>
-                <td><input type="text" name="adresse_mail" value="<?php echo $unProduit['description']; ?>"></td>
+                <td><input type="text" name="description" value="<?php echo $unProduit['description']; ?>"></td>
             </tr>
             <tr align="center">
                 <td>TVA</td>
-                <td><input type="text" name="niveau_etude" value="<?php echo $unProduit['tva']; ?>"></td>
+                <td><input type="text" name="tva" value="<?php echo $unProduit['tva']; ?>"></td>
             </tr>
             <tr align="center">
                 <td>PHOTO</td>

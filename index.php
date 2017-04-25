@@ -84,11 +84,12 @@ session_start();
                     $libelle = $_REQUEST['libelle'];
                     $prix = $_REQUEST['prix'];
                     $description = $_REQUEST['description'];
+                    $quantite = $_REQUEST['quantite'];
                     $tva = $_REQUEST['tva'];
                     $photo = $_REQUEST['photo'];
                     $login = $_SESSION['login'];
 
-                    $res = $pdo->modifProduit($id, $libelle, $prix, $description, $tva, $photo, $login);
+                    $res = $pdo->modifProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo, $login);
 
                     if ($res) {
                         echo 'Modification pris en compte';

@@ -78,14 +78,14 @@ class PdoIonis {
         $req = "UPDATE produit SET 
             id = '$id',
             libelle = '$libelle',
-            quantite = $quantite ,
+            quantite = $quantite,
             prix = $prix,
             description = '$description',
             tva = '$tva',
             photo = '$photo',
             login = '$login' 
             WHERE id = '$id'";
-        var_dump($req);
+        //var_dump($req);
         $res = PdoIonis::$monPdo->query($req);
         return $res;
     }
