@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_entete.php</file>
-            <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_voirEspace.php</file>
-            <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_accueil.php</file>
-            <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_erreur.php</file>
+            <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/util/class.PDO.Ionis.inc.php</file>
+            <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_modif.php</file>
+            <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_ajout.php</file>
+            <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/index.php</file>
             <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_voirProduits.php</file>
-            <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_connexionEspace.php</file>
             <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_connexion.php</file>
-            <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_bandeauAdmin.php</file>
             <file>file:/Applications/MAMP/htdocs/ionis_project-ntiers/vues/v_afficheProduits.php</file>
         </group>
     </open-files>

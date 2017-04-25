@@ -110,20 +110,9 @@ class PdoIonis {
         $nb = $ligne['nb'];
         return $nb;
     }
-
-    public function loginEspace($login, $mdp) {
-        $req = "select count(*) as nb from utilisateur where login = '$login' and mdp = '$mdp'";
-        $res = PdoIonis::$monPdo->query($req);
-        $ligne = $res->fetch();
-        $nb = $ligne['nb'];
-        return $nb;
-    }
-
-    public function getUnUtilisateur($login) {
-        $req = "select * from utilisateur where login ='$login";
-        $res = PdoIonis::$monPdo->query($req);
-        $lesLignes = $res->fetchAll();
-        return $lesLignes;
+    
+    public function getUnProduit($id){
+        $req = "select * from produit where id like '$id' ";
     }
 
 }

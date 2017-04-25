@@ -23,22 +23,35 @@ session_start();
 
         switch ($uc) {
             case 'accueil': {
-                    include("vues/v_bandeau.php");
-                    include("vues/v_accueil.php");
+                if (!isset($_SESSION['login']) && (!isset($_SESSION['passwd']))) {
+                        include("vues/v_bandeau.php");
+                        include("vues/v_accueil.php");
+                    } else {
+                        include("vues/v_bandeauAdmin.php");
+                        include("vues/v_accueil.php");
+                    }                    
                     break;
                 }
 
             case 'voirProduits' : {
-                    include("vues/v_bandeau.php");
-                    include("vues/v_afficheProduits.php");
+
+                    if (!isset($_SESSION['login']) && (!isset($_SESSION['passwd']))) {
+                        include("vues/v_bandeau.php");
+                        include("vues/v_afficheProduits.php");
+                    } else {
+                        include("vues/v_bandeauAdmin.php");
+                        include("vues/v_afficheProduits.php");
+                    }
                     break;
                 }
 
             case 'administrer' : {
-                    include("vues/v_bandeau.php");
+
                     if (!isset($_SESSION['login']) && (!isset($_SESSION['passwd']))) {
+                        include("vues/v_bandeau.php");
                         include("vues/v_connexion.php");
                     } else {
+                        include("vues/v_bandeauAdmin.php");
                         include("vues/v_voirProduits.php");
                     }
                     break;
@@ -52,11 +65,16 @@ session_start();
                 }
 
             case 'modifier': {
-                    include("vues/v_bandeauAdmin.php");
-                    $id = $_GET['cleP'];
-                    $login = $_SESSION['login'];
-                    $unProduit = $pdo->afficheProduit($id);
-                    include 'vues/v_modif.php';
+                    if (!isset($_SESSION['login']) && (!isset($_SESSION['passwd']))) {
+                        include("vues/v_bandeauAdmin.php");
+                        include 'vues/v_connexion';
+                    } else {
+                        include("vues/v_bandeauAdmin.php");
+                        $id = $_GET['cleP'];
+                        $login = $_SESSION['login'];
+                        $unProduit = $pdo->afficheProduit($id);
+                        include 'vues/v_modif.php';
+                    }
                     break;
                 }
 
@@ -98,7 +116,7 @@ session_start();
 
             case 'ajouter': {
                     include("vues/v_bandeauAdmin.php");
-                    
+
                     if (!isset($_SESSION['login']) && (!isset($_SESSION['passwd']))) {
                         include("vues/v_connexion.php");
                     } else {
@@ -137,6 +155,21 @@ session_start();
                         $_SESSION['passwd'] = $passwd;
                         include("vues/v_voirProduits.php");
                     }
+                    break;
+                }
+
+
+            case 'rechercher' : {
+                    include("vues/v_bandeauAdmin.php");
+                    include("vues/v_recherche.php");
+                    break;
+                }
+
+            case 'rechercher_id_produit' : {
+                    include("vues/v_bandeauAdmin.php");
+                    $id = $_POST['id'];
+                    $unProduit = $pdo->afficheProduit($id);
+                    include("vues/v_afficheUnProduit.php");
                     break;
                 }
         }

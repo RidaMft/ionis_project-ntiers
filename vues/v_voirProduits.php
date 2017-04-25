@@ -7,6 +7,7 @@ session_start();
     <br>
     <br>
     <li><a href=index.php?uc=ajouter>Ajouter un produit</a></li>
+    <li><a href=index.php?uc=rechercher>Rechercher un produit</a></li>
     <br>
     <table width='85%' border='1px' height='90' align='center'>
         <tr>
