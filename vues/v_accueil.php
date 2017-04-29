@@ -7,6 +7,7 @@ session_start();
 <div>
     Bienvenue <?php echo $_SESSION[login];?>, vous pouvez pleinement utiliser l'application :)
 </div>
+
 <br>
 <br>
 <br>

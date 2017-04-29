@@ -2,12 +2,20 @@
 session_start();
 ?>
 <html>
-<head> </head>
+    <head> </head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <br>
     <br>
     <li><a href=index.php?uc=ajouter>Ajouter un produit</a></li>
     <li><a href=index.php?uc=rechercher>Rechercher un produit</a></li>
+
+    <form action="util/consultation_xml.php">
+        <input type="submit" value="Export XML des consultations" />
+    </form>
+
+    <form action="util/produit_xml.php">
+        <input type="submit" value="Export XML des produits" />
+    </form>
     <br>
     <table width='85%' border='1px' height='90' align='center'>
         <tr>
