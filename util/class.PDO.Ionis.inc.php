@@ -61,7 +61,7 @@ class PdoIonis {
         $sql = "INSERT  INTO produit (libelle, prix, quantite, description, tva, photo, login) VALUES ('$libelle', $prix, $quantite, '$description', '$tva','$photo', '$login')";
 
         $res = PdoIonis::$monPdo->query($sql);
-        echo $sql;
+       
 
         //affichage des résultats, pour savoir si l'insertion a marchée:
         if ($res) {
@@ -120,6 +120,12 @@ class PdoIonis {
     
     public function getUnProduit($id){
         $req = "select * from produit where id like '$id' ";
+    }
+    
+    public function addConsultation($login, $json){
+        $req = "INSERT INTO consultation (login, json, date) VALUES ('$login' , '$json', now() )";
+        $res = PdoIonis::$monPdo->query($req);
+        return res;
     }
 
 }

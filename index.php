@@ -41,6 +41,9 @@ session_start();
                     } else {
                         include("vues/v_bandeauAdmin.php");
                         include("vues/v_afficheProduits.php");
+                        $var = $pdo->getLesProduits();
+                        var_dump($var);
+                        $res = $pdo -> addConsultation($_SESSION['login'], json_encode($var));
                     }
                     break;
                 }
@@ -107,7 +110,7 @@ session_start();
                     $res = $pdo->suppProduit($id);
                     if ($res) {
                         echo 'Suppression effectué';
-                        include("vues/v_voirProduits.php");
+                        //include("vues/v_voirProduits.php");
                     } else {
                         echo 'Erreur suppression';
                         include("vues/v_erreur.php");
@@ -138,7 +141,7 @@ session_start();
                         $photo = $_POST['photo'];
                         $login = $_SESSION['login'];
                         $res = $pdo->ajoutProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo, $login);
-                        include("vues/v_voirProduits.php");
+                        include("vues/v_accueil.php");
                     }
                     break;
                 }
