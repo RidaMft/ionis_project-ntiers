@@ -84,8 +84,9 @@ class PdoIonis {
             description = '$description',
             tva = '$tva',
             photo = '$photo',
-            login = '$login' , 
-            etat = '$etat' 
+            login_update = '$login' , 
+            etat = '$etat',
+            date_update = now() 
             WHERE id = '$id'";
         //var_dump($req);
         $res = PdoIonis::$monPdo->query($req);

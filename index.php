@@ -155,21 +155,21 @@ session_start();
                 }
 
             case 'connexion' : {
-                    include("vues/v_bandeauAdmin.php");
                     $login = $_POST['login'];
                     $passwd = $_POST['passwd'];
 
                     $res = $pdo->log($login, $passwd);
                     if ($res == 0) {
+                        include("vues/v_bandeau.php");
                         include("vues/v_erreur.php");
                     } else {
                         $_SESSION['login'] = $login;
                         $_SESSION['passwd'] = $passwd;
+                        include("vues/v_bandeauAdmin.php");
                         include("vues/v_voirProduits.php");
                     }
                     break;
                 }
-
 
             case 'rechercher' : {
                     include("vues/v_bandeauAdmin.php");
