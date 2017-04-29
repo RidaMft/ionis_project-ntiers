@@ -53,6 +53,10 @@ foreach ($produits as $produit) {
     $xml->writeRaw($produit['tva']);
     $xml->endElement();
 
+    $xml->startElement("etat");
+    $xml->writeRaw($produit['etat']);
+    $xml->endElement();
+    
     $xml->startElement("login");
     $xml->writeRaw($produit['login']);
     $xml->endElement();

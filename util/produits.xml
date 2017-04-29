@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<produits>
+ <produit>
+  <id>2</id>
+  <sku></sku>
+  <libelle>Fraise 1kg</libelle>
+  <prix>10</prix>
+  <quantite>10</quantite>
+  <description>Fraise Origine Espagne</description>
+  <tva>20%</tva>
+  <etat>6</etat>
+  <login>root</login>
+  <date>0000-00-00</date>
+  <login_update>rmef</login_update>
+  <date_update>2017-04-29</date_update>
+ </produit>
+ <produit>
+  <id>3</id>
+  <sku></sku>
+  <libelle>Abricot 2 kg</libelle>
+  <prix>15</prix>
+  <quantite>2</quantite>
+  <description>Abricot bio origine espagne</description>
+  <tva>20%</tva>
+  <etat>0</etat>
+  <login></login>
+  <date>0000-00-00</date>
+  <login_update></login_update>
+  <date_update>0000-00-00</date_update>
+ </produit>
+ <produit>
+  <id>4</id>
+  <sku></sku>
+  <libelle>Abricot 5 kg</libelle>
+  <prix>30</prix>
+  <quantite>2</quantite>
+  <description></description>
+  <tva>20%</tva>
+  <etat>1</etat>
+  <login>root</login>
+  <date>0000-00-00</date>
+  <login_update></login_update>
+  <date_update>0000-00-00</date_update>
+ </produit>
+ <produit>
+  <id>5</id>
+  <sku>REFAO13555</sku>
+  <libelle>Abricot 2 kg</libelle>
+  <prix>15</prix>
+  <quantite>2</quantite>
+  <description>DDDDD</description>
+  <tva>20%</tva>
+  <etat>0</etat>
+  <login>root</login>
+  <date>0000-00-00</date>
+  <login_update></login_update>
+  <date_update>0000-00-00</date_update>
+ </produit>
+ <produit>
+  <id>6</id>
+  <sku></sku>
+  <libelle>Abricot 2 kg</libelle>
+  <prix>30</prix>
+  <quantite>2</quantite>
+  <description>Abricot bio origine espagne</description>
+  <tva>20%</tva>
+  <etat>1</etat>
+  <login>root</login>
+  <date>0000-00-00</date>
+  <login_update></login_update>
+  <date_update>0000-00-00</date_update>
+ </produit>
+ <produit>
+  <id>7</id>
+  <sku></sku>
+  <libelle>Rose</libelle>
+  <prix>20</prix>
+  <quantite>10</quantite>
+  <description>Rose rouge </description>
+  <tva>20%</tva>
+  <etat>1</etat>
+  <login>root</login>
+  <date>0000-00-00</date>
+  <login_update></login_update>
+  <date_update>0000-00-00</date_update>
+ </produit>
+ <produit>
+  <id>8</id>
+  <sku>SKU2</sku>
+  <libelle>test</libelle>
+  <prix>1</prix>
+  <quantite>1</quantite>
+  <description></description>
+  <tva>20%</tva>
+  <etat>1</etat>
+  <login>root</login>
+  <date>2017-04-29</date>
+  <login_update></login_update>
+  <date_update>0000-00-00</date_update>
+ </produit>
+</produits>
