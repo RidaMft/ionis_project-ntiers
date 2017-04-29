@@ -57,8 +57,8 @@ class PdoIonis {
         return $lesProduits;
     }
 
-    public function ajoutProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo, $login) {
-        $sql = "INSERT  INTO produit (libelle, prix, quantite, description, tva, photo, login) VALUES ('$libelle', $prix, $quantite, '$description', '$tva','$photo', '$login')";
+    public function ajoutProduit($id,$sku, $libelle, $prix, $quantite, $description, $tva, $photo, $login, $etat) {
+        $sql = "INSERT  INTO produit (sku, libelle, prix, quantite, description, tva, photo, login, etat, date) VALUES ('$sku','$libelle', $prix, $quantite, '$description', '$tva','$photo', '$login', $etat, now())";
 
         $res = PdoIonis::$monPdo->query($sql);
        
@@ -74,16 +74,18 @@ class PdoIonis {
         return $res;
     }
 
-    public function modifProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo, $login) {
+    public function modifProduit($id, $sku, $libelle, $prix, $quantite, $description, $tva, $photo, $login, $etat) {
         $req = "UPDATE produit SET 
             id = '$id',
+            sku = '$sku',
             libelle = '$libelle',
             quantite = $quantite,
             prix = $prix,
             description = '$description',
             tva = '$tva',
             photo = '$photo',
-            login = '$login' 
+            login = '$login' , 
+            etat = '$etat' 
             WHERE id = '$id'";
         //var_dump($req);
         $res = PdoIonis::$monPdo->query($req);
@@ -105,7 +107,8 @@ class PdoIonis {
     }
 
     public function suppProduit($id) {
-        $req = "delete from produit where id ='$id'";
+        $etat = 0 ;
+        $req = "UPDATE produit SET ETAT = $etat where id ='$id'";
         $res = PdoIonis::$monPdo->query($req);
         return $res;
     }

@@ -42,7 +42,7 @@ session_start();
                         include("vues/v_bandeauAdmin.php");
                         include("vues/v_afficheProduits.php");
                         $var = $pdo->getLesProduits();
-                        var_dump($var);
+                        //var_dump($var);
                         $res = $pdo -> addConsultation($_SESSION['login'], json_encode($var));
                     }
                     break;
@@ -56,6 +56,9 @@ session_start();
                     } else {
                         include("vues/v_bandeauAdmin.php");
                         include("vues/v_voirProduits.php");
+                        $var = $pdo->getLesProduits();
+                        //var_dump($var);
+                        $res = $pdo -> addConsultation($_SESSION['login'], json_encode($var));
                     }
                     break;
                 }
@@ -84,6 +87,7 @@ session_start();
             case 'modification': {
                     include("vues/v_bandeauAdmin.php");
                     $id = $_REQUEST['id'];
+                    $sku = $_REQUEST['sku'];
                     $libelle = $_REQUEST['libelle'];
                     $prix = $_REQUEST['prix'];
                     $description = $_REQUEST['description'];
@@ -91,8 +95,9 @@ session_start();
                     $tva = $_REQUEST['tva'];
                     $photo = $_REQUEST['photo'];
                     $login = $_SESSION['login'];
+                    $etat = (intval($_REQUEST['etat'])+1);
 
-                    $res = $pdo->modifProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo, $login);
+                    $res = $pdo->modifProduit($id, $sku, $libelle, $prix, $quantite, $description, $tva, $photo, $login, $etat);
 
                     if ($res) {
                         echo 'Modification pris en compte';
@@ -133,6 +138,7 @@ session_start();
                     include("vues/v_bandeauAdmin.php");
                     if (!isset($_REQUEST['ajouter'])) {
                         $id = $_REQUEST['id'];
+                        $sku = $_POST['sku'];
                         $libelle = $_POST['libelle'];
                         $prix = $_POST['prix'];
                         $quantite = $_POST['quantite'];
@@ -140,7 +146,9 @@ session_start();
                         $tva = $_POST['tva'];
                         $photo = $_POST['photo'];
                         $login = $_SESSION['login'];
-                        $res = $pdo->ajoutProduit($id, $libelle, $prix, $quantite, $description, $tva, $photo, $login);
+                        $etat = 1;
+                        $res = $pdo->ajoutProduit($id, $sku, $libelle, $prix, $quantite, $description, $tva, $photo, $login, $etat);
+                        var_dump($res);
                         include("vues/v_accueil.php");
                     }
                     break;

@@ -38,6 +38,10 @@ session_start();
                 <td><input type="text" name="login" value="<?php echo $unProduit['login']; ?>" readonly="readonly"></td>
             </tr>
             <tr align="center">
+                <td>Etat</td>
+                <td><input type="text" name="etat" value="<?php echo $unProduit['etat']; ?>" readonly="readonly"></td>
+            </tr>
+            <tr align="center">
                 <td colspan="2"><input type="submit" value="modifier"></td>
             </tr>
         </table>

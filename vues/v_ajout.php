@@ -5,7 +5,10 @@ session_start();
     <br>
     <form name="ajouter" action="index.php?uc=insertion" method="POST">
         <table border="0" align="center" cellspacing="5" cellpadding="5">
-
+            <tr align="center">
+                <td>SKU</td>
+                <td><input type="text" name="sku" value=""></td>
+            </tr>
             <tr align="center">
                 <td>Libelle</td>
                 <td><input type="text" name="libelle" value=""></td>
