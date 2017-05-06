@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+         <!-- XML Schema Generated from XML Document on Sat May 06 2017 23:49:38 GMT+0200 (CEST) -->
+         <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+         <xs:element name="consultations">
+               <xs:complexType>
+                     <xs:sequence>
+                           <xs:element name="consultation" maxOccurs="unbounded">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="id" type="xs:int"></xs:element>
+                                             <xs:element name="login" type="xs:string"></xs:element>
+                                             <xs:element name="json" type="xs:string"></xs:element>
+                                             <xs:element name="date" type="xs:date"></xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                     </xs:sequence>
+               </xs:complexType>
+         </xs:element>
+   </xs:schema>

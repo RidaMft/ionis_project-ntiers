@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+          <!-- XML Schema Generated from XML Document on Sat May 06 2017 23:48:15 GMT+0200 (CEST) -->
+          <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+       <xs:element name="produits">
+              <xs:complexType>
+                     <xs:sequence>
+                            <xs:element name="produit" maxOccurs="unbounded">
+                                   <xs:complexType>
+                                          <xs:sequence>
+                                                 <xs:element name="id" type="xs:int"></xs:element>
+                                                 <xs:element name="sku"></xs:element>
+                                                 <xs:element name="libelle" type="xs:string"></xs:element>
+                                                 <xs:element name="prix" type="xs:int"></xs:element>
+                                                 <xs:element name="quantite" type="xs:int"></xs:element>
+                                                 <xs:element name="description" type="xs:string"></xs:element>
+                                                 <xs:element name="tva" type="xs:string"></xs:element>
+                                                 <xs:element name="etat" type="xs:int"></xs:element>
+                                                 <xs:element name="login" type="xs:string"></xs:element>
+                                                 <xs:element name="date" type="xs:date"></xs:element>
+                                                 <xs:element name="login_update" type="xs:string"></xs:element>
+                                                 <xs:element name="date_update" type="xs:date"></xs:element>
+                                             </xs:sequence>
+                                      </xs:complexType>
+                               </xs:element>
+                        </xs:sequence>
+                 </xs:complexType>
+          </xs:element>
+   </xs:schema>
